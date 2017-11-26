@@ -363,7 +363,7 @@ class PDNSControl(object):
             payload = {
                 "rrsets": [
                     {
-                        "name": self.args.name + '.' + self.args.zone,
+                        "name": self.args.name + '.' + self.args.zone + '.',
                         "type": self.args.recordType,
                         "changetype": "DELETE",
                     }
@@ -387,7 +387,7 @@ class PDNSControl(object):
                     payload = {
                         "rrsets": [
                             {
-                                "name": row[0] + '.' + row[1],
+                                "name": row[0] + '.' + row[1] '.',
                                 "type": row[2],
                                 "changetype": "DELETE",
                             }
