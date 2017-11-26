@@ -256,7 +256,7 @@ class PDNSControl(object):
                     nameservers.append(nameserver)
             if self.args.zoneType == "MASTER":
                 payload = {
-                    "name": self.args.zone,
+                    "name": self.args.zone + '.',
                     "kind": self.args.zoneType,
                     "masters": [],
                     "soa_edit_api": "INCEPTION-INCREMENT",
@@ -264,14 +264,14 @@ class PDNSControl(object):
                 }
             elif self.args.zoneType == "NATIVE":
                 payload = {
-                    "name": self.args.zone,
+                    "name": self.args.zone + '.',
                     "kind": self.args.zoneType,
                     "masters": [],
                     "nameservers": nameservers
                 }
             else:
                 payload = {
-                    "name": self.args.zone,
+                    "name": self.args.zone + '.',
                     "kind": self.args.zoneType,
                     "masters": masters,
                     "nameservers": []
@@ -306,7 +306,7 @@ class PDNSControl(object):
                                 nameservers.append(nameserver)
                         if row[1].upper() == "MASTER":
                             payload = {
-                                "name": row[0],
+                                "name": row[0] + '.',
                                 "kind": row[1],
                                 "masters": [],
                                 "soa_edit_api": "INCEPTION-INCREMENT",
@@ -314,14 +314,14 @@ class PDNSControl(object):
                             }
                         elif row[1].upper() == "NATIVE":
                             payload = {
-                                "name": row[0],
+                                "name": row[0] + '.',
                                 "kind": row[1],
                                 "masters": [],
                                 "nameservers": nameservers
                             }
                         else:
                             payload = {
-                                "name": row[0],
+                                "name": row[0] + '.',
                                 "kind": row[1],
                                 "masters": masters,
                                 "nameservers": []
