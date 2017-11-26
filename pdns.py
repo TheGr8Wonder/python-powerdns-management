@@ -409,7 +409,7 @@ class PDNSControl(object):
         Delete DNS Zones
         """
         payload = {
-            "name": self.args.zone
+            "name": self.args.zone + '.'
         }
         zone_check = requests.get(self.uri, headers=self.headers)
         if zone_check.status_code == 200:
